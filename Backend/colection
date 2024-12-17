@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "53154b9c-89fa-4f92-9211-739b9554d57e",
+		"name": "joki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24929104",
+		"_collection_link": "https://blue-meadow-583111.postman.co/workspace/New-Team-Workspace~8540942e-f31d-46ee-8559-7874e5b0752e/collection/24929104-53154b9c-89fa-4f92-9211-739b9554d57e?action=share&source=collection_link&creator=24929104"
+	},
+	"item": [
+		{
+			"name": "new cars",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nama\": \"avanza\",\r\n  \"harga\": 120000000,\r\n  \"tahun\": 2008,\r\n  \"jarakTempuh\": 15000,\r\n  \"efisiensiBahanBakar\": 12.75\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3100/recommendations",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"recommendations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

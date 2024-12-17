@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   @db.VarChar(255)
+  name      String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Car {
+  id          Int      @id @default(autoincrement())
+  nama        String   @db.Char(20)
+  harga       Int      @db.Int
+  tahun       DateTime @db.Date
+  jarakTempuh Int      @db.Int
+  merkId      Int
+  merk        Merk     @relation(fields: [merkId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("cars")
+}
+
+model Merk {
+  id        Int      @id @default(autoincrement())
+  merk      String   @db.VarChar(100)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Car       Car[]
+
+  @@map("merk")
+}
+
+model Weight {
+  id               Int      @id @default(autoincrement())
+  harga            Float    @db.Double
+  tahun            Float    @db.Double
+  jarakTempuh      Float    @db.Double
+  totalKeseluruhan Float    @db.Double
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("weight")
+}
